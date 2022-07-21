@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->char('sex',1)->nullable();
             $table->string('email');
             $table->string('password');
-            $table->float('total');
-            $table->float('goal');
+            $table->float('total')->default(0);
+            $table->float('goal')->default(0);
         });
     }
 
