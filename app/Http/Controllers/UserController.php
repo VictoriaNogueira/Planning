@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //create user
+    //create and save user
     public function store(UserRequest $request)
     {
         // begin transaction

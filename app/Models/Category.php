@@ -12,10 +12,20 @@ class Category extends Model
     public $timestamps = false;
 
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'id'
+    ];
+
+
     // Relation
     public function Amount()
     {
-        return $this->belongsToMany(Amount::class);
+        return $this->belongsTo(Amount::class);
     }
 
 }

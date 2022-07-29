@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
 
         return [
             'name' => 'required',
-            'cpf' => 'nullable|min:11|unique',
+            'cpf' => 'nullable|min:11|unique:users',
             'sex' => 'nullable|in:F,M',
             'email' => 'required|email',
             'password' => 'required|min:6',
