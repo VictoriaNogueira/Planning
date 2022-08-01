@@ -18,14 +18,15 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'id'
+        'id',
+        'name'
     ];
 
 
     // Relation
     public function Amount()
     {
-        return $this->belongsTo(Amount::class);
+        return $this->belongsToMany(Amount::class);
     }
 
 }

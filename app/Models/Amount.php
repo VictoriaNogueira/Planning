@@ -23,12 +23,12 @@ class Amount extends Model
     ];
 
     // Relation
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function Amount()
+    public function category()
     {
         return $this->hasOne(Category::class);
     }

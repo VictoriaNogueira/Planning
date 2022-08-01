@@ -5,6 +5,7 @@ Oraganização financeira
 @endsection
 
 @section('conteudo')
+    
 
     <form action="/planning" method="post">
         @csrf
@@ -21,9 +22,13 @@ Oraganização financeira
 
             <div class="col col-3">
                 <p>Tipo</p>
-                <input type="radio" name="category" value="1">Entrada
+                @foreach($categories as $categoria)
+                    <input type="radio" name="category" value="{{$categoria->id}}">{{$categoria -> name}}
+                @endforeach
+
+                {{-- <input type="radio" name="category" value="1">Entrada
                 <input type="radio" name="category" value="2">Saída
-                <input type="radio" name="category" value="3">Objetivo
+                <input type="radio" name="category" value="3">Objetivo --}}
 
                 {{-- <label for="category">Entrada </label>
                 <label for="category">Saída </label>
@@ -42,11 +47,11 @@ Oraganização financeira
             </tr>
         </thead>
         <tbody>
-        @foreach($amounts as $array)
+        @foreach($amounts as $valor)
             <tr>
-                <td>{{ $array->description }}</td>
-                <td>{{ $array->value }}</td>
-                <td>{{ $array->category_id }}</td>
+                <td>{{ $valor->description }}</td>
+                <td>{{ $valor->value }}</td>
+                <td>{{ $valor->category_id }}</td>
             </tr>
         @endforeach
         </tbody>

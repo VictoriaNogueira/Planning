@@ -17,23 +17,21 @@ class AmountController extends Controller
     public function index ()
     {
         //$amounts = Amount::all();
+        //$amounts = Amount::with('category')->get();
         $amounts = Amount::query()->get();
-        $count = 0;
-        $array = [];
+        $categories = Category::query()->get();
 
-        foreach($amounts as $amount)
-        {
-            $array[$count]['description'] = $amount->description;
-            $array[$count]['value'] = $amount->value;
-            $array[$count]['category'] = $amount->category_id;
-
-            $count++;
-        }
-        //json_encode($array);
+        // $count = 0;
+        // $arrayAmount = [];
+        // foreach($amounts as $amount)
+        // {
+        //     $arrayAmount[$count]['description'] = $amount->description;
+        //     $arrayAmount[$count]['value'] = $amount->value;
+        //     $arrayAmount[$count]['category'] = $amount->category->name;
+        //     $count++;
+        // }
         //dd($array);
-        return view('planning.index', compact ('array','amounts'));
-        // $products = Product::all();
-        // return view('products',compact('products','product_lines'));
+        return view('planning.index', compact ('categories','amounts'));
     }
 
 
@@ -41,7 +39,6 @@ class AmountController extends Controller
     public function store(AmountRequest $request)
     {
         DB::BeginTransaction();
-
         try{
             $amount = Amount::create([
                 'description' => $request->description,
@@ -54,8 +51,7 @@ class AmountController extends Controller
             DB::Rollback();
             $notify[] = ['message', $e->getMessage(), 'error' => true];
         }
-
-        return view('planning.index');
+        return $this->index();
     }
 
 }
