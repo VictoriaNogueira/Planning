@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/user', 'App\Http\Controllers\UserController@store');
 // Route::post('/amount', [AmountController::class,'store']);
 Route::post('/amount', 'App\Http\Controllers\AmountController@store');
+Route::delete('/planning/{id}', 'App\Http\Controllers\AmountController@destroy');
+
 
 
 

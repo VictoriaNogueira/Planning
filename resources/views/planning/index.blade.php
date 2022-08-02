@@ -5,7 +5,7 @@ Oraganização financeira
 @endsection
 
 @section('conteudo')
-    
+
 
     <form action="/planning" method="post">
         @csrf
@@ -25,15 +25,8 @@ Oraganização financeira
                 @foreach($categories as $categoria)
                     <input type="radio" name="category" value="{{$categoria->id}}">{{$categoria -> name}}
                 @endforeach
-
-                {{-- <input type="radio" name="category" value="1">Entrada
-                <input type="radio" name="category" value="2">Saída
-                <input type="radio" name="category" value="3">Objetivo --}}
-
-                {{-- <label for="category">Entrada </label>
-                <label for="category">Saída </label>
-                <label for="category">Objetivo </label> --}}
             </div>
+
         </div>
         <button type="submit" class="btn btn-primary mt-2">Adicionar</button>
     </form>
@@ -44,16 +37,23 @@ Oraganização financeira
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Tipo</th>
+                <th scope="col">Ação</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($amounts as $valor)
-            <tr>
-                <td>{{ $valor->description }}</td>
-                <td>{{ $valor->value }}</td>
-                <td>{{ $valor->category_id }}</td>
-            </tr>
-        @endforeach
+            @foreach($amounts as $value)
+                <tr>
+                    <td>{{ $value->description }}</td>
+                    <td>{{ $value->value }}</td>
+                    <td>{{ $value->category_id }}</td>
+                    <td>
+                        <form method="delete" action="/planning/{{ $value->id }}"
+                            onsubmit=" return confirm('Deseja realmente remover este valor?')">
+                            <button class="btn btn-danger btn-sm">DEL</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 

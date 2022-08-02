@@ -9,6 +9,9 @@ Route::get('/', function () {
 
 Route::post('/planning', [AmountController::class,'store']);
 Route::get('/planning', [AmountController::class,'index']);
+Route::delete('/planning/{id}', [AmountController::class,'destroy']);
+Route::get('/planning/{id}', [AmountController::class,'destroy']);
+
 
 
 // Route::get('/planning', [AmountController::class,'index']);

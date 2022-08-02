@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use App\Http\Middleware\TrustProxies;
 use App\Http\Requests\AmountRequest;
 use App\Models\Amount;
 use App\Models\User;
@@ -40,7 +41,7 @@ class AmountController extends Controller
     {
         DB::BeginTransaction();
         try{
-            $amount = Amount::create([
+            Amount::create([
                 'description' => $request->description,
                 'value' => $request->value,
                 'category_id' => $request->category,
@@ -52,6 +53,15 @@ class AmountController extends Controller
             $notify[] = ['message', $e->getMessage(), 'error' => true];
         }
         return $this->index();
+    }
+
+    public function destroy($id)
+    {
+        $amount = Amount::find($id);
+        $amount->delete();
+        return $this->index();
+
+        //dd($amount);
     }
 
 }
