@@ -10,6 +10,7 @@ class Amount extends Model
     use HasFactory;
 
     public $timestamps = false;
+    public $table = 'amounts';
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +31,6 @@ class Amount extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->hasOne(Category::class,'category_id','id');
     }
 }

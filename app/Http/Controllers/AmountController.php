@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-//use App\Http\Middleware\TrustProxies;
 use App\Http\Requests\AmountRequest;
 use App\Models\Amount;
 use App\Models\User;
@@ -17,21 +16,13 @@ class AmountController extends Controller
     //lista os valores
     public function index ()
     {
-        //$amounts = Amount::all();
-        //$amounts = Amount::with('category')->get();
-        $amounts = Amount::query()->get();
-        $categories = Category::query()->get();
+        $amounts = Amount::join('categories','amounts.category_id', '=', 'categories.id')
+            ->select('amounts.*','categories.name')
+            ->paginate(3);
+        $categories = Category::all();
+        //$amounts = Amount::with('category');
+        //dd($amount->category->name);
 
-        // $count = 0;
-        // $arrayAmount = [];
-        // foreach($amounts as $amount)
-        // {
-        //     $arrayAmount[$count]['description'] = $amount->description;
-        //     $arrayAmount[$count]['value'] = $amount->value;
-        //     $arrayAmount[$count]['category'] = $amount->category->name;
-        //     $count++;
-        // }
-        //dd($array);
         return view('planning.index', compact ('categories','amounts'));
     }
 
@@ -52,16 +43,16 @@ class AmountController extends Controller
             DB::Rollback();
             $notify[] = ['message', $e->getMessage(), 'error' => true];
         }
-        return $this->index();
+        return redirect()->back();
     }
+
 
     public function destroy($id)
     {
         $amount = Amount::find($id);
         $amount->delete();
-        return $this->index();
-
-        //dd($amount);
+        //return $this->index();
+        return redirect()->back();
     }
 
 }

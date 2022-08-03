@@ -36,29 +36,5 @@ class UserController extends Controller
             }
             return $notify;
     }
-
-    //update user
-    // public function update(UserUpdateRequest $request)
-    // {
-    //     //begin transaction
-    //     DB::BeginTransaction();
-
-    //         try{
-    //             $user = User::find($request->id);
-    //             $user->update($request)
-    //         }
-    // }
 }
-
-        // try{
-        //     $user = User::find($request->id);
-        //     $user->update($request->except(['name', 'id']));
-        //     $info = $user->infoUser()->update($request->only('name'));
-        //     DB::commit();
-        //     $notify[] = ['message'=>'Assistido alterado com sucesso!', 'error'=> false];
-        // }catch(Exception $e){
-        //     DB::rollBack();
-        //     $notify[] = ['message'=>'Não foi possível alterar os dados!', 'error'=> true];
-        // }
-        // return json_encode($notify);
 

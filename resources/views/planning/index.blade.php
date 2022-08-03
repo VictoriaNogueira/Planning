@@ -45,16 +45,20 @@ Oraganização financeira
                 <tr>
                     <td>{{ $value->description }}</td>
                     <td>{{ $value->value }}</td>
-                    <td>{{ $value->category_id }}</td>
+                    <td>{{ $value->name }}</td>
                     <td>
                         <form method="delete" action="/planning/{{ $value->id }}"
                             onsubmit=" return confirm('Deseja realmente remover este valor?')">
-                            <button class="btn btn-danger btn-sm">DEL</button>
+                            <button class="btn btn-danger btn-sm ">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    {{paginateLinks($amounts)}}
 
 @endsection

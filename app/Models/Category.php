@@ -24,9 +24,9 @@ class Category extends Model
 
 
     // Relation
-    public function Amount()
+    public function amount()
     {
-        return $this->belongsToMany(Amount::class);
+        return $this->belongsTo(Amount::class);
     }
 
 }
