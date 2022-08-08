@@ -1,11 +1,11 @@
 @extends('layout')
 
-@section('cabecalho')
+@section('header')
 Oraganização financeira
 @endsection
 
-@section('conteudo')
-
+@section('content')
+@include('partials.notify')
 
     <form action="/planning" method="post">
         @csrf
