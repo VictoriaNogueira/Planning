@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class UserRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,8 @@ class UserRequest extends FormRequest
     {
 
         return [
-            'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6',
-            'password_confirmation' => 'required|same:password',
-            'goal' => 'required'
         ];
 
     }
@@ -45,13 +42,10 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'O campo nome é obrigatório!',
-            'email.required' => 'O campo Email é obrigatório.',
-            'email.email' => 'Email inválido.',
-            'password.required' => 'O campo Senha é obrigatório!',
+            'email.required' => 'Campo obrigatório!',
+            'email.email' => 'Email inválido!',
+            'password.required' => 'Campo obrigatório!',
             'password.min' => 'A senha deve conter ao menos 6 caracteres!',
-            'password_confirmation.required' => 'A confirmação de senha é obrigatória!',
-            'password_confirmation.same' => 'As senhas devem ser iguais.'
         ];
     }
 }

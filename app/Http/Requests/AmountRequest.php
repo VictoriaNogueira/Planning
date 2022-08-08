@@ -25,7 +25,7 @@ class AmountRequest extends FormRequest
         return [
             'description' => 'required',
             'value' => 'required',
-            //'tipo' => 'required',
+            'category' => 'required',
         ];
 
     }
@@ -43,9 +43,9 @@ class AmountRequest extends FormRequest
     public function messages()
     {
         return [
-            'description.required' => 'O campo descrição é obrigatório!',
-            'value.required' => 'O campo valor é obrigatório!',
-            //'tipo.required' => 'O campo tipo é obrigatório!',
+            'description.required' => 'Campo obrigatório!',
+            'value.required' => 'Campo obrigatório!',
+            'category.required' => 'Campo obrigatório!',
         ];
     }
 }
