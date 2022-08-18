@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests;
 use App\Models\Amount;
 use App\Models\User;
 use App\Models\Category;
@@ -29,7 +29,8 @@ class UserController extends Controller
             'password.required' => 'O campo Senha é obrigatório!',
             'password.min' => 'A senha deve conter ao menos 6 caracteres!',
             'password_confirmation.required' => 'A confirmação de senha é obrigatória!',
-            'password_confirmation.same' => 'As senhas devem ser iguais.'
+            'password_confirmation.same' => 'As senhas devem ser iguais.',
+            'goal.required' => 'O campo objetivo é obrigatório!'
         ];
 
         $request->validate([
@@ -50,14 +51,14 @@ class UserController extends Controller
             'goal' => $request->goal
         ]);
 
-        if(!$user = $request->validate(['name, email, password, password_confirmation, goal'])){
-            DB::Rollback();
-            $notify[] = ['error', 'Erro ao criar usuário!'];
-            return back()->withNotify($notify);
-        } else{
+        if(!$request->validate(['name, email, password, password_confirmation, goal'])){
             DB::Commit();
             $notify[] = ['success', 'Usuario criado!'];
             return redirect()->intended('login')->withNotify($notify);
+        } else{
+            DB::Rollback();
+            $notify[] = ['error', 'Erro ao criar usuário!'];
+            return back()->withNotify($notify);
         }
     }
 }

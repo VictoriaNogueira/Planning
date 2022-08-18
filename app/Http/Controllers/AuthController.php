@@ -44,6 +44,14 @@ class AuthController extends Controller
         $notify[] = ['success', 'Usuario logado!'];
         return redirect()->intended('planning')->withNotify($notify);
     }
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return redirect('login');
+    }
 }
 
 

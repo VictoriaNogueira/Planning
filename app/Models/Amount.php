@@ -20,7 +20,8 @@ class Amount extends Model
     protected $fillable = [
         'description',
         'value',
-        'category_id'
+        'category_id',
+        'user_id'
     ];
 
     // Relation

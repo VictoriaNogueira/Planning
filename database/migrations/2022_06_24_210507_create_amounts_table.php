@@ -16,14 +16,9 @@ class CreateAmountsTable extends Migration
         Schema::create('amounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('user_id')->constrained('users');
             $table->text('description');
             $table->float('value');
-
-
-
-
-
-            
 
             // $table->foreign('user_id')
             //     ->references('id')
