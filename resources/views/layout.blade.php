@@ -11,65 +11,60 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ asset('assets/global/css/layout.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/homepage.css') }}">
     </head>
     <body>
         @yield('header')
-
-        <nav class="navbar navbar-light navbar-expand-lg mb-5">
-            <a class="navbar-brand" href="{{ route('home') }}">Planning</a>
-	        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    @guest {{-- Verifica se está logado ou nao  --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Cadastre-se</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Sair</a>
-                        </li>
-                    @endguest
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="/images/Planning-header.png" >
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#links-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="links-menu">
+                    <ul class="nav navbar-nav ml-auto">
+                        @guest {{-- Verifica se está logado ou nao --}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register-user') }}">Cadastre-se</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}">Sair</a>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
         </nav>
 
         @yield('content')
+
+        @yield('footer')
+        <footer>
+            <div class="div-footer">
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="/images/Planning-footer.png" >
+                </a>
+                <p>Testando mais uma vez pois isto deve dar muito certo daqui uns dias.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-google"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                {{-- <p>Copyright &copy; 2022 Planning | Developed By <span>Victoria Nogueira</span></p> --}}
+                <p>&copy; 2022 Planning | Developed By <span>Victoria Nogueira</span></p>
+            </div>
+        </footer>
     </body>
 </html>
-
-{{-- <nav class="navbar navbar-default navbar-inverse" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Login dropdown</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-                 </li>
-            </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav> --}}

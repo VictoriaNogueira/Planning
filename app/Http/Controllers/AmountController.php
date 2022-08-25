@@ -96,9 +96,7 @@ class AmountController extends Controller
         // $entradas = Amount::where('amounts.user_id', auth::user()->id)
         //     ->where('category_id', '=', 1)
         //     ->sum('value');
-        //     return $entradas;
-
-        //     // echo($entradas) . PHP_EOL;
+        // echo($entradas) . PHP_EOL;
 
         // $saidas = Amount::select()
         //     ->where('amounts.user_id', auth::user()->id)
