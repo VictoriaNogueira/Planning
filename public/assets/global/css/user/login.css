@@ -1,0 +1,155 @@
+.login{
+    /* background-color: #fff; */
+    background: #3F3D56;
+    padding: 4rem 15rem;
+}
+
+@media (max-width:640px){
+    .login{
+        padding: 3rem 1.5rem;
+    }
+}
+
+.container-login{
+    background: #FFF;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 2rem 1rem 3rem 1rem;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+
+@media (max-width:850px){
+    .container-login{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        display: block;
+    }
+}
+
+.login-img{
+    width: 50%;
+    display: flex;
+}
+
+.icon-back i{
+    color:#09092C;
+    margin: 0 0 25rem 0;
+}
+
+.icon-back i:hover{
+    color:#AD7EE8;
+}
+
+@media (max-width:850px){
+    .icon-back i{
+        color:#09092C;
+        margin: 0 0 2rem 0;
+    }
+}
+
+.img-login{
+    width: 95%;
+    margin-top: 2rem;
+}
+
+@media (max-width:850px){
+    .img-login{
+        display: none;
+    }
+}
+
+.form-login{
+    width: 37%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:850px){
+    .form-login{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width:650px){
+    .form-login{
+        font-size: 14px;
+    }
+}
+
+.form-login h2{
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 0 30px 0;
+}
+
+.form-group{
+    border-bottom: 1px solid #adadad;
+    margin: 40px 0;
+}
+
+@media (max-width:650px){
+    .form-group {
+        border-bottom: 1px solid #adadad;
+        margin: 39px 25px;
+    }
+}
+
+.form-group input{
+    width: 100%;
+    padding: 0 5px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    box-shadow: 0 4px 2px -2px #AD7EE8;
+}
+
+.form-button{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-form{
+    width: 40%;
+    border: 1px solid #09092C;;
+    border-radius: 3px;
+    background:#09092C;
+    font-size: 18px;
+    color:#FFF;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-form:hover{
+    border: 1px solid #AD7EE8;
+    background:#AD7EE8;
+    transition: 0.4s;
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.signup{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.signup a{
+    color: #09092C;
+    text-decoration: none;
+}
+
+.signup a:hover{
+    text-decoration: underline;
+}

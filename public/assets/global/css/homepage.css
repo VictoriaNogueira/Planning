@@ -2,12 +2,18 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:30px 10PX;
+    padding:10px;
 }
 
 @media (max-width:900px){
     .logo-home {
         display: none;
+    }
+}
+
+@media (max-width:900px){
+    .planning-home img {
+        width: 100%;
     }
 }
 
@@ -33,7 +39,6 @@
         flex-direction: column;
     }
 }
-
 
 .card-info{
     width: 20%;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-home">
     <div class="content-home">
         <div class="planning-home">
             <img src="/images/Planning-home.png"/>

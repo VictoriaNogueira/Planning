@@ -13,6 +13,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ asset('assets/global/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/homepage.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/user/login.css') }}">
     </head>
     <body>
         @yield('header')
@@ -56,13 +57,24 @@
                 </a>
                 <p>Testando mais uma vez pois isto deve dar muito certo daqui uns dias.</p>
                 <ul class="socials">
-                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-google"></i></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></i></a></li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/victoria-nogueira-a86575173/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:victorianp99@gmail.com" target="_blank">
+                            <i class="fa-brands fa-google"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/_viicnogueira/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-bottom">
-                {{-- <p>Copyright &copy; 2022 Planning | Developed By <span>Victoria Nogueira</span></p> --}}
                 <p>&copy; 2022 Planning | Developed By <span>Victoria Nogueira</span></p>
             </div>
         </footer>

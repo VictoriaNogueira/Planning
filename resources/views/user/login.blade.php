@@ -3,38 +3,38 @@
 @section('content')
 @include('partials.notify')
 
-<main class="login-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card">
+<div class="login">
+    <div class="container-login">
+        <div class="back">
+            <a class="icon-back" href="{{ route('home') }}">
+                <i class="fa-solid fa-arrow-left fa-2xl"></i>
+            </a>
+        </div>
+        <div class="login-img">
 
-                    {{-- @if(\Session::has('messages'))
-                        <div class="alert alert-info">
-                            {{\Session::get('message')}}
-                        </div>
-                    @endif --}}
-
-                    <h3 class="card-header text-center">Login</h3>
-                    <div class="card-body">
-                        {{-- <form method="POST" action="/login"> --}}
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" class="form-control" name="email"autofocus>
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="password" placeholder="Senha" id="password" class="form-control" name="password">
-                            </div>
-                            <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Entrar</button>
-                            </div>
-                        </form>
-                    </div>
+            <img src="/images/Login-img.png" class="img-login"/>
+        </div>
+        <div class="form-login">
+            <h2>Login</h2>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="form-group">
+                    <input type="text" placeholder="Email" id="email"
+                    class="form-control" name="email">
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Senha" id="password"
+                    class="form-control" name="password">
+                </div>
+                <div class="form-button">
+                    <button type="submit" class="btn-form">Entrar</button>
+                </div>
+                <div class="signup">
+                    Ou <a href="{{ route('register-user') }}">cadastre-se </a>
+                </div>
+            </form>
         </div>
     </div>
-</main>
+</div>
 
 @endsection
