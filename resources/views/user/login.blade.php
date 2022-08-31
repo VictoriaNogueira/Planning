@@ -11,7 +11,6 @@
             </a>
         </div>
         <div class="login-img">
-
             <img src="/images/Login-img.png" class="img-login"/>
         </div>
         <div class="form-login">

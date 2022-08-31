@@ -10,6 +10,12 @@
     }
 }
 
+@media (min-width:1600px){
+    .login{
+        padding: 4rem 25rem;
+    }
+}
+
 .container-login{
     background: #FFF;
     display: flex;
@@ -45,7 +51,6 @@
 
 @media (max-width:850px){
     .icon-back i{
-        color:#09092C;
         margin: 0 0 2rem 0;
     }
 }
@@ -133,9 +138,10 @@
 .btn-form:hover{
     border: 1px solid #AD7EE8;
     background:#AD7EE8;
-    transition: 0.4s;
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    transition: 0.3s;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .signup{

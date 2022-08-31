@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('assets/global/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/homepage.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/user/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/user/create.css') }}">
     </head>
     <body>
         @yield('header')

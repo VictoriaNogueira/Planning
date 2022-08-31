@@ -12,6 +12,18 @@ nav.navbar {
     color: #fff;
 }
 
+@media (max-width:640px){
+    .navbar-dark .navbar-nav .nav-link{
+        padding: 1rem 0 0 1rem;
+    }
+}
+
+@media (max-width:640px){
+    .navbar-dark .navbar-toggler {
+        margin-right: 1rem;
+    }
+}
+
 .container-home {
     background: #09092C;
     padding: 1rem 1rem 2rem 1rem;
@@ -68,8 +80,9 @@ footer{
 .socials a:hover i{
     color:#AD7EE8;
     transition: 0.3s;
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .footer-bottom{
