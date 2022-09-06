@@ -26,7 +26,8 @@ class AmountController extends Controller
         $amounts = Amount::join('categories','amounts.category_id', '=', 'categories.id')
             ->select('amounts.*','categories.name')
             ->where('amounts.user_id', auth::user()->id)
-            ->paginate(3);
+            ->orderby('amounts.id', 'desc')
+            ->paginate(5);
 
             return view('planning.index', compact ('categories','amounts'));
     }
@@ -36,33 +37,34 @@ class AmountController extends Controller
     public function store(Request $request)
     {
         $messages =[
-            'description.required' => 'Campo obrigatório!',
-            'value.required' => 'Campo obrigatório!',
-            'category.required' => 'Campo obrigatório!',
+            'description.required' => 'O campo descrição é obrigatório!',
+            'value.required' => 'O campo valor é obrigatório!',
+            'category.required' => 'O campo categoria é obrigatório!',
         ];
 
         $request->validate([
             'description' => 'required',
             'value' => 'required',
             'category' => 'required',
-        ]);
+        ], $messages);
 
         DB::BeginTransaction();
-        try{
-            Amount::create([
-                'description' => $request->description,
-                'value' => $request->value,
-                'category_id' => $request->category,
-                'user_id' => auth::user()->id
-            ]);
+        $amount = Amount::create([
+            'description' => $request->description,
+            'value' => $request->value,
+            'category_id' => $request->category,
+            'user_id' => auth::user()->id
+        ]);
+
+        if(!$request->validate(['description, value, category_id'])){
             DB::Commit();
-            $notify[] = ['message', 'Valor cadastrado!', 'error' => false];
-        }catch(Exception $e){
+            $notify[] = ['success', 'Valor cadastrado!'];
+        }else{
             DB::Rollback();
-            $notify[] = ['message', $e->getMessage(), 'error' => true];
+            $notify[] = ['error', 'Erro ao cadastrar valor!'];
         }
 
-        return redirect()->back();
+        return back()->withNotify($notify);
     }
 
     public function destroy($id)
@@ -73,25 +75,24 @@ class AmountController extends Controller
         return redirect()->back();
     }
 
-    public function somaValor($category){
+    public function sumValues($category){
 		return Amount::select()
             ->where('amounts.user_id', auth::user()->id)
             ->where('category_id', '=', $category)
             ->sum('value');
 	}
 
-    public function dashboard()
+    public function cards()
     {
-        $entradas = $this -> somaValor(1);
-            echo($entradas) . PHP_EOL;
+        $entradas = $this -> sumValues(1);
 
-        $saidas = $this -> somaValor(2);
-            echo($saidas) . PHP_EOL;
+        $saidas = $this -> sumValues(2);
 
-        $investimentos = $this -> somaValor(3);
-            echo($investimentos);
+        $investimentos = $this -> sumValues(3);
 
-        return view('planning.dashboard');
+        $total = $entradas - $saidas - $investimentos;
+
+        return view('planning.dashboard', compact ('entradas','saidas', 'investimentos', 'total'));
     }
         // $entradas = Amount::where('amounts.user_id', auth::user()->id)
         //     ->where('category_id', '=', 1)

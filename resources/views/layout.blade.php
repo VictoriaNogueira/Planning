@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{{ asset('assets/global/css/homepage.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/user/login.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/user/create.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/planning/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/planning/dashboard.css') }}">
     </head>
     <body>
         @yield('header')
@@ -36,6 +38,9 @@
                                 <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('planning') }}">Início</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                             </li>

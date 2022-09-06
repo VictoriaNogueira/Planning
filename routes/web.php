@@ -15,11 +15,11 @@ Route::get('register-user',[UserController::class, 'index'])->name('register-use
 Route::post('register-user',[UserController::class, 'store'])->name('register-user');
 
 Route::post('/planning', [AmountController::class,'store']);
-Route::get('/planning', [AmountController::class,'index']);
+Route::get('/planning', [AmountController::class,'index'])->name('planning');
 Route::delete('/planning/{id}', [AmountController::class,'destroy']);
 Route::get('/planning/{id}', [AmountController::class,'destroy']);
 
-Route::get('/dashboard', [AmountController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard', [AmountController::class,'cards'])->name('dashboard');
 
 
 
