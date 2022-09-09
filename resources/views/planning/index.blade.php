@@ -7,6 +7,7 @@
     <div class="welcome">
         <div class="">
             <h2>Olá, {{Auth::user()->name}}</h2>
+            <small> {{date('d/m/Y')}}</small>
         </div>
         {{-- Modal --}}
         <button type="button" class="btn-add-value" data-toggle="modal" data-target="#exampleModal">Adicionar valor</button>
@@ -25,10 +26,10 @@
                             @csrf
                             <div class="form-add-value">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Descrição" class="form-control" name="description" id="description">
+                                    <input type="text" placeholder="Descrição" class="form-control" name="description" id="description" value="{{old('description')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="float" placeholder="Valor" class="form-control" name="value" id="value">
+                                    <input type="float" placeholder="Valor" class="form-control" name="value" id="value" value="{{old('value')}}">
                                 </div>
                                 <div class="form-type">
                                     <label for="category">Categoria</label><br>

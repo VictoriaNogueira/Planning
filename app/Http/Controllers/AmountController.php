@@ -92,7 +92,13 @@ class AmountController extends Controller
 
         $total = $entradas - $saidas - $investimentos;
 
-        return view('planning.dashboard', compact ('entradas','saidas', 'investimentos', 'total'));
+
+        $findGoal = User::where('users.id', auth::user()->id)
+            ->select('users.goal')->firstOrFail();
+            $goal = $findGoal->goal;
+
+
+        return view('planning.dashboard', compact ('goal', 'entradas','saidas', 'investimentos', 'total'));
     }
         // $entradas = Amount::where('amounts.user_id', auth::user()->id)
         //     ->where('category_id', '=', 1)

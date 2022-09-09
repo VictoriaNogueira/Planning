@@ -11,6 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="{{ asset('assets/global/css/layout.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/homepage.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/global/css/user/login.css') }}">
@@ -23,7 +24,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="/images/Planning-header.png" >
+                    <h1 class="logo">PLANNING</h1>
+                    {{-- <img src="/images/Planning-header.png" > --}}
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#links-menu">
                     <span class="navbar-toggler-icon"></span>
@@ -59,9 +61,12 @@
         <footer>
             <div class="div-footer">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="/images/Planning-footer.png" >
+                    {{-- <img src="/images/Planning-footer.png" > --}}
+                    <h1 class="logo">PLANNING</h1>
                 </a>
-                <p>Testando mais uma vez pois isto deve dar muito certo daqui uns dias.</p>
+                {{-- <p>Testando mais uma vez pois isso tem que dar muito certo daqui uns dias.</p> --}}
+                {{-- <p>Te ajudando a alcançar o seu objetivo.</p> --}}
+                <p>Your life.</p>
                 <ul class="socials">
                     <li>
                         <a href="https://www.linkedin.com/in/victoria-nogueira-a86575173/" target="_blank">

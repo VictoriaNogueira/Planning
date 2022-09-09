@@ -9,7 +9,19 @@
 .content-cards-amounts{
     display: flex;
     justify-content: space-between;
+}
 
+@media (max-width:855px){
+    .content-cards-amounts {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:590px){
+    .content-cards-amounts {
+        justify-content: center;
+    }
 }
 
 .card-amount{
@@ -21,6 +33,22 @@
     box-shadow: 15px 15px 10px -15px;
     background-color: rgba(9, 9, 44, 0.1);
 }
+
+@media (max-width:855px){
+    .card-amount {
+        width: 49%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width:590px){
+    .card-amount {
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 
 .img-card-amounts{
     width: 30%;
@@ -47,4 +75,10 @@
     font-size: 22px;
 }
 
+.chartBox{
+    width:300px;
+}
 
+.chartBoxGoal{
+    width:300px;
+}
