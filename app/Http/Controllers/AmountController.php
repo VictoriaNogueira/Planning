@@ -53,7 +53,8 @@ class AmountController extends Controller
             'description' => $request->description,
             'value' => $request->value,
             'category_id' => $request->category,
-            'user_id' => auth::user()->id
+            'user_id' => auth::user()->id,
+            'created_at' => $request->created_at
         ]);
 
         if(!$request->validate(['description, value, category_id'])){
@@ -71,7 +72,6 @@ class AmountController extends Controller
     {
         $amount = Amount::find($id);
         $amount->delete();
-        //return $this->index();
         return redirect()->back();
     }
 
@@ -92,14 +92,19 @@ class AmountController extends Controller
 
         $total = $entradas - $saidas - $investimentos;
 
-
         $findGoal = User::where('users.id', auth::user()->id)
             ->select('users.goal')->firstOrFail();
             $goal = $findGoal->goal;
 
+        // $findMonth = Amount::where('users.id', auth::user()->id)
+        //     ->select('users.created_at')->firstOrFail();
+        //     $month = $findMonth->month();
+        // var month = today.getMonth();
+
 
         return view('planning.dashboard', compact ('goal', 'entradas','saidas', 'investimentos', 'total'));
     }
+
         // $entradas = Amount::where('amounts.user_id', auth::user()->id)
         //     ->where('category_id', '=', 1)
         //     ->sum('value');

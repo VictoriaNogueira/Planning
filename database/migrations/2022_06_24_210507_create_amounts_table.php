@@ -15,22 +15,14 @@ class CreateAmountsTable extends Migration
     {
         Schema::create('amounts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('category_id')
+                ->constrained('categories');
+            $table->foreignId('user_id')
+                ->constrained('users');
             $table->text('description');
             $table->float('value');
-
-            // $table->foreign('user_id')
-            //     ->references('id')
-            //     ->on('users');
-
-            // $table->foreign('category_id')
-            //     ->references('id')
-            //     ->on('categories');
-
-            //$table->foreignId('user_id')->references('id')->on('users');
-            // $table->enum('type', ['1','2','3'])->default('inactive');
-            // $table->foreignId('categories_id')->references('id')->on('categories');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

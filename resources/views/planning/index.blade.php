@@ -58,7 +58,7 @@
                         <th scope="col">Descrição</th>
                         <th scope="col">Valor</th>
                         <th scope="col">Tipo</th>
-                        {{-- <th scope="col">Data</th> --}}
+                        <th scope="col">Inserção</th>
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
@@ -68,7 +68,7 @@
                             <td>{{ $value->description }}</td>
                             <td>{{ $value->value }}</td>
                             <td>{{ $value->name }}</td>
-                            {{-- <td>{{ $value->date}}</td> --}}
+                            <td>{{ $value->created_at->format('d/m/Y')}}</td>
                             <td>
                                 <form method="delete" action="/planning/{{ $value->id }}"
                                     onsubmit=" return confirm('Deseja realmente remover este valor?')">

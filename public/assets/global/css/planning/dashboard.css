@@ -31,7 +31,8 @@
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 15px 15px 10px -15px;
-    background-color: rgba(9, 9, 44, 0.1);
+    /* background-color: rgba(9, 9, 44, 0.1); */
+    background-color: rgb(49,44,126, 0.2);
 }
 
 @media (max-width:855px){
@@ -75,6 +76,13 @@
     font-size: 22px;
 }
 
+.charts{
+    background: #09092C;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3rem 0 0 0;
+}
+
 .chartBox{
     width:300px;
 }
@@ -82,3 +90,23 @@
 .chartBoxGoal{
     width:300px;
 }
+
+.chartdiv1 {
+    width: 40%;
+    height: 400px;
+}
+
+.chartdiv2 {
+    width: 40%;
+    height: 400px;
+}
+
+.chartdiv3 {
+    width: 40%;
+    height: 400px;
+}
+
+
+
+
+

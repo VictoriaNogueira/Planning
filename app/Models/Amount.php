@@ -9,7 +9,7 @@ class Amount extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
     public $table = 'amounts';
 
     /**
