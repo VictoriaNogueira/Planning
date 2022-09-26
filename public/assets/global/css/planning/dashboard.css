@@ -50,7 +50,6 @@
     }
 }
 
-
 .img-card-amounts{
     width: 30%;
     display: flex;
@@ -68,6 +67,7 @@
 .text-card{
     color: #fff;
     text-align: center;
+    font-size: 20px;
 }
 
 .title-card{
@@ -81,14 +81,15 @@
     display: flex;
     justify-content: space-evenly;
     padding: 3rem 0 0 0;
+    flex-wrap: wrap;
 }
 
-.chartBox{
-    width:300px;
-}
-
-.chartBoxGoal{
-    width:300px;
+@media (max-width:995px){
+    .charts{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
 }
 
 .chartdiv1 {
@@ -96,14 +97,50 @@
     height: 400px;
 }
 
+@media (max-width:995px){
+    .chartdiv1{
+        width: 65%;
+    }
+}
+
+@media (max-width:590px){
+    .chartdiv1{
+        width: 85%;
+    }
+}
+
 .chartdiv2 {
-    width: 40%;
+    width: 60%;
     height: 400px;
 }
 
+@media (max-width:995px){
+    .chartdiv2{
+        width: 65%;
+    }
+}
+
+@media (max-width:590px){
+    .chartdiv2{
+        width: 85%;
+    }
+}
+
 .chartdiv3 {
-    width: 40%;
+    width: 50%;
     height: 400px;
+}
+
+@media (max-width:995px){
+    .chartdiv3{
+        width: 60%;
+    }
+}
+
+@media (max-width:590px){
+    .chartdiv3{
+        width: 85%;
+    }
 }
 
 

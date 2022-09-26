@@ -97,9 +97,10 @@ class AmountController extends Controller
             $goal = $findGoal->goal;
 
         // $findMonth = Amount::where('users.id', auth::user()->id)
-        //     ->select('users.created_at')->firstOrFail();
+        //     ->select('users.created_at')->Month();
         //     $month = $findMonth->month();
-        // var month = today.getMonth();
+
+            // var month = today.getMonth();
 
 
         return view('planning.dashboard', compact ('goal', 'entradas','saidas', 'investimentos', 'total'));

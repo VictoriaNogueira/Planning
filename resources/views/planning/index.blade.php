@@ -5,9 +5,11 @@
 
 
     <div class="welcome">
-        <div class="">
-            <h2>Olá, {{Auth::user()->name}}</h2>
-            <small> {{date('d/m/Y')}}</small>
+        <div class="welcome-user">
+            <h3>Olá, <span>{{Auth::user()->name}}</span></h3>
+            <i class="fa-solid fa-calendar-days"></i>
+            <small><i> {{date('d/m/Y')}}</i></small>
+
         </div>
         {{-- Modal --}}
         <button type="button" class="btn-add-value" data-toggle="modal" data-target="#exampleModal">Adicionar valor</button>
@@ -66,7 +68,7 @@
                     @foreach($amounts as $value)
                         <tr>
                             <td>{{ $value->description }}</td>
-                            <td>{{ $value->value }}</td>
+                            <td>R$ {{ $value->value }}</td>
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->created_at->format('d/m/Y')}}</td>
                             <td>

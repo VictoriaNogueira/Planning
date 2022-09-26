@@ -18,10 +18,10 @@
             <form action="" method="POST">
                 @csrf
                 <div class="form-group-user">
-                    <input type="text" placeholder="Nome" id="name" class="form-control" name="name">
+                    <input type="text" placeholder="Nome" id="name" class="form-control" name="name" value="{{old('name')}}">
                 </div>
                 <div class="form-group-user">
-                    <input type="text" placeholder="Email" id="email" class="form-control" name="email">
+                    <input type="text" placeholder="Email" id="email" class="form-control" name="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group-user">
                     <input type="password" placeholder="Senha" id="password" class="form-control" name="password">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group-user">
                     <b>Qual valor você deseja alcançar?</b>
-                    <input type="number" placeholder="Objetivo" id="name" class="form-control" name="goal">
+                    <input type="number" placeholder="Objetivo" id="name" class="form-control" name="goal" value="{{old('goal')}}">
                 </div>
                 <div class="form-button-create">
                     <a href="{{ route('home') }}">

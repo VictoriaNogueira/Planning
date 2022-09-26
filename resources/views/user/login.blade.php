@@ -18,12 +18,10 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
-                    <input type="text" placeholder="Email" id="email"
-                    class="form-control" name="email">
+                    <input type="text" placeholder="Email" id="email" class="form-control" name="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Senha" id="password"
-                    class="form-control" name="password">
+                    <input type="password" placeholder="Senha" id="password" class="form-control" name="password">
                 </div>
                 <div class="form-button">
                     <button type="submit" class="btn-form">Entrar</button>

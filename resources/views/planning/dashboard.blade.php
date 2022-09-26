@@ -15,7 +15,7 @@
                     <b>Entradas</b>
                 </div>
                 <div class= "text-card">
-                    {{$entradas}}
+                    <b>R$ {{$entradas}}</b>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <b>Saídas</b>
                 </div>
                 <div class= "text-card">
-                    {{$saidas}}
+                    <b>R$ {{$saidas}}</b>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <b>Investimento</b>
                 </div>
                 <div class= "text-card">
-                    {{$investimentos}}
+                    <b>R$ {{$investimentos}}</b>
                 </div>
             </div>
         </div>
@@ -54,10 +54,26 @@
                     <b>Total</b>
                 </div>
                 <div class= "text-card">
-                    {{$total}}
+                    <b>R$ {{$total}}</b>
                 </div>
             </div>
         </div>
+
+        {{-- <div class="card-amount">
+            <div class="img-card-amounts">
+                <img src="/images/card-total.png" class="img-card-amount">
+            </div>
+            <div class="texts-card">
+                <div class= "title-card">
+                    <b>month</b>
+                </div>
+                <div class= "text-card">
+                    <b>R$ {{$month}}</b>
+                </div>
+            </div>
+        </div> --}}
+
+
     </div>
 </div>
 
@@ -180,6 +196,11 @@
         layout: root.verticalLayout
         }));
 
+// pieSeries.ticks.template.disabled = true;
+// pieSeries.alignLabels = false;
+// pieSeries.labels.template.text = "{value.percent.formatNumber('#.0')}%";
+// pieSeries.labels.template.radius = am4core.percent(-40);
+
 
         // Create series
         // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
@@ -197,7 +218,6 @@
         { value: {{$investimentos}}, category: "Investimentos" },
         ]);
 
-
         // Create legend
         // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
         var legend = chart.children.push(am5.Legend.new(root, {
@@ -209,11 +229,11 @@
 
         legend.data.setAll(series.dataItems);
 
-
         // Play initial series animation
         // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
         series.appear(1000, 100);
 
+        //_______________________________
         //Chart 3
 
         // Create root element

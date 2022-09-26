@@ -32,7 +32,6 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <h1 class="logo">PLANNING</h1>
-                    {{-- <img src="/images/Planning-header.png" > --}}
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#links-menu">
                     <span class="navbar-toggler-icon"></span>
@@ -68,12 +67,10 @@
         <footer>
             <div class="div-footer">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    {{-- <img src="/images/Planning-footer.png" > --}}
                     <h1 class="logo">PLANNING</h1>
                 </a>
-                {{-- <p>Testando mais uma vez pois isso tem que dar muito certo daqui uns dias.</p> --}}
-                {{-- <p>Te ajudando a alcançar o seu objetivo.</p> --}}
-                <p>Your life.</p>
+                <p>Te ajudando a alcançar o seu objetivo.</p>
+                {{-- <p>Your life.</p> --}}
                 <ul class="socials">
                     <li>
                         <a href="https://www.linkedin.com/in/victoria-nogueira-a86575173/" target="_blank">
